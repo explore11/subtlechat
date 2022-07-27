@@ -15,9 +15,7 @@
     <description>the mail server project for SubtleChat application</description>
     <packaging>jar</packaging>
 
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
+
     <dependencies>
         <dependency>
             <groupId>top.javahai</groupId>

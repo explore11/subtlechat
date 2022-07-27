@@ -1,5 +1,7 @@
 package top.javahai.subtlechat.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import top.javahai.subtlechat.api.entity.Admin;
 import top.javahai.subtlechat.service.AdminService;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("admin")
+@Api(tags = "管理")
 public class AdminController {
     /**
      * 服务对象
@@ -28,6 +31,7 @@ public class AdminController {
      * @return 单条数据
      */
     @GetMapping("selectOne")
+    @ApiOperation("查询单条数据")
     public Admin selectOne(Integer id) {
         return this.adminService.queryById(id);
     }

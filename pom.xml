@@ -39,6 +39,7 @@
         <hutool-all.version>5.8.4</hutool-all.version>
         <swagger2.version>2.9.2</swagger2.version>
         <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
     </properties>
 
     <dependencyManagement>
@@ -125,31 +126,33 @@
                 <artifactId>java-emoji-converter</artifactId>
                 <version>${java-emoji-converter.version}</version>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>cn.hutool</groupId>-->
-<!--                <artifactId>hutool-all</artifactId>-->
-<!--                <version>${hutool-all.version}</version>-->
-<!--            </dependency>-->
-<!--            &lt;!&ndash;swagger&ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>io.springfox</groupId>-->
-<!--                <artifactId>springfox-swagger2</artifactId>-->
-<!--                <version>${swagger2.version}</version>-->
-<!--            </dependency>-->
-<!--            &lt;!&ndash;swagger UI&ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>com.github.xiaoymin</groupId>-->
-<!--                <artifactId>swagger-bootstrap-ui</artifactId>-->
-<!--                <version>${swagger-bootstrap-ui.version}</version>-->
-<!--            </dependency>-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-all.version}</version>
+            </dependency>
+            <!--swagger-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <!--swagger UI-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>swagger-bootstrap-ui</artifactId>
+                <version>${swagger-bootstrap-ui.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
