@@ -1,0 +1,4 @@
+# Project exclude paths
+/subtlechat-api/target/
+/subtlechat-mail/target/
+/subtlechat-web/target/
