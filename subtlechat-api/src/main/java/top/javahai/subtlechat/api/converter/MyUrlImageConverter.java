@@ -49,13 +49,12 @@ public class MyUrlImageConverter implements Converter<URL> {
         try {
             //开启连接
             URLConnection uc = value.openConnection();
-            URL url  = null;
-
+            URL url = null;
 
 
             //获取响应状态
             int statusCode = ((HttpURLConnection) uc).getResponseCode();
-            switch (statusCode){
+            switch (statusCode) {
                 case 200:
                     inputStream = value.openStream();
                     break;
@@ -64,26 +63,26 @@ public class MyUrlImageConverter implements Converter<URL> {
                     url = new URL("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598096095144&di=9a72ad26e83effb9341c711c9818b85f&imgtype=0&src=http%3A%2F%2Fpic.616pic.com%2Fys_bnew_img%2F00%2F11%2F69%2Fj2AjnHspwT.jpg");
                     inputStream = url.openStream();
                     break;
-                default :
+                default:
                     url = new URL("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598096095144&di=9a72ad26e83effb9341c711c9818b85f&imgtype=0&src=http%3A%2F%2Fpic.616pic.com%2Fys_bnew_img%2F00%2F11%2F69%2Fj2AjnHspwT.jpg");
                     inputStream = url.openStream();
                     break;
             }
             byte[] bytes = IoUtils.toByteArray(inputStream);
-            byte[] compressBytes = ImgUtil.compressPicForScale(bytes,200, UUID.randomUUID().toString());
+            byte[] compressBytes = ImgUtil.compressPicForScale(bytes, 200, UUID.randomUUID().toString());
             return new CellData(compressBytes);
-        }catch (ConnectException exception){
+        } catch (ConnectException exception) {
             //捕获下链接异常
             URL url = new URL("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598096095144&di=9a72ad26e83effb9341c711c9818b85f&imgtype=0&src=http%3A%2F%2Fpic.616pic.com%2Fys_bnew_img%2F00%2F11%2F69%2Fj2AjnHspwT.jpg");
             inputStream = url.openStream();
             byte[] bytes = IoUtils.toByteArray(inputStream);
             return new CellData(bytes);
-        }catch (FileNotFoundException fileNotFoundException){
+        } catch (FileNotFoundException fileNotFoundException) {
             URL url = new URL("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598096095144&di=9a72ad26e83effb9341c711c9818b85f&imgtype=0&src=http%3A%2F%2Fpic.616pic.com%2Fys_bnew_img%2F00%2F11%2F69%2Fj2AjnHspwT.jpg");
             inputStream = url.openStream();
             byte[] bytes = IoUtils.toByteArray(inputStream);
             return new CellData(bytes);
-        }finally {
+        } finally {
             if (inputStream != null) {
                 inputStream.close();
             }

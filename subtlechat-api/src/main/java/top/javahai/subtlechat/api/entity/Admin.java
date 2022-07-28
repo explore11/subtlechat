@@ -1,5 +1,7 @@
 package top.javahai.subtlechat.api.entity;
 
+import com.baomidou.mybatisplus.annotation.*;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -12,26 +14,45 @@ import java.util.Collection;
  * @author makejava
  * @since 2020-06-16 11:35:56
  */
+@TableName(value = "admin")
 public class Admin implements Serializable, UserDetails {
     private static final long serialVersionUID = -75235725571250857L;
 
+    @TableId(value = "id", type = IdType.AUTO)
+    @ApiModelProperty(value = "主键")
     private Integer id;
     /**
-    * 登录账号
-    */
+     * 登录账号
+     */
+    @ApiModelProperty(value = "登录账号")
+    @TableField(value = "username")
     private String username;
     /**
-    * 昵称
-    */
+     * 昵称
+     */
+    @ApiModelProperty(value = "昵称")
+    @TableField(value = "nickname")
     private String nickname;
     /**
-    * 密码
-    */
+     * 密码
+     */
+    @ApiModelProperty(value = "密码")
+    @TableField(value = "password")
     private String password;
     /**
-    * 管理员头像
-    */
+     * 管理员头像
+     */
+    @ApiModelProperty(value = "管理员头像")
+    @TableField(value = "user_profile")
     private String userProfile;
+
+    /**
+     * 是否删除
+     */
+    @TableLogic
+    @ApiModelProperty(value = "是否删除")
+    @TableField(value = "delete")
+    private Integer delete;
 
 
     public Integer getId() {
@@ -99,4 +120,11 @@ public class Admin implements Serializable, UserDetails {
         this.userProfile = userProfile;
     }
 
+    public Integer getDelete() {
+        return delete;
+    }
+
+    public void setDelete(Integer delete) {
+        this.delete = delete;
+    }
 }

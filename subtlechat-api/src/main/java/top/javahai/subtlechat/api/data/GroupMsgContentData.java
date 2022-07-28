@@ -16,6 +16,7 @@ import java.util.Date;
 
 /**
  * Excel导入导出的数据类
+ *
  * @author Hai
  * @date 2020/10/7 - 23:52
  */
@@ -37,14 +38,14 @@ public class GroupMsgContentData {
     private URL fromProfile;
 
     @ExcelProperty("发送时间")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
 
-    @ExcelProperty(value = {"内容","文本"})
+    @ExcelProperty(value = {"内容", "文本"})
     @ColumnWidth(50)
     private String textContent;
 
-    @ExcelProperty(value = {"内容","图片"},converter = MyUrlImageConverter.class)
+    @ExcelProperty(value = {"内容", "图片"}, converter = MyUrlImageConverter.class)
     @ColumnWidth(50)
     private URL imageContent;
 

@@ -1,5 +1,6 @@
 package top.javahai.subtlechat.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import top.javahai.subtlechat.api.entity.GroupMsgContent;
 import org.apache.ibatis.annotations.Param;
 
@@ -12,7 +13,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-06-17 10:51:13
  */
-public interface GroupMsgContentDao {
+public interface GroupMsgContentDao extends BaseMapper<GroupMsgContent> {
 
     /**
      * 通过ID查询单条数据

@@ -43,39 +43,37 @@ public class MyContentConverter implements Converter<String> {
     @Override
     public CellData convertToExcelData(String value, ExcelContentProperty contentProperty,
                                        GlobalConfiguration globalConfiguration) throws IOException {
-        if (value.toLowerCase().startsWith("http")){
+        if (value.toLowerCase().startsWith("http")) {
             InputStream inputStream = null;
             URL imageUrl = new URL(value);
             try {
                 //开启连接
                 URLConnection uc = imageUrl.openConnection();
-                URL url  = null;
+                URL url = null;
                 //获取响应状态
                 int statusCode = ((HttpURLConnection) uc).getResponseCode();
-                switch (statusCode){
+                switch (statusCode) {
                     case 200:
                         inputStream = imageUrl.openStream();
                         break;
-                    default :
+                    default:
                         //直接当成String处理
                         return new CellData(value);
                 }
                 byte[] bytes = IoUtils.toByteArray(inputStream);
                 //压缩图片
-                byte[] compressBytes = ImgUtil.compressPicForScale(bytes,200, UUID.randomUUID().toString());
+                byte[] compressBytes = ImgUtil.compressPicForScale(bytes, 200, UUID.randomUUID().toString());
                 return new CellData(compressBytes);
-            }catch (Exception exception) {
+            } catch (Exception exception) {
                 //直接当成String处理
                 return new CellData(value);
-            }finally {
+            } finally {
                 if (inputStream != null) {
                     inputStream.close();
                 }
             }
 
-        }
-
-        else{
+        } else {
             return new CellData(value);
         }
     }

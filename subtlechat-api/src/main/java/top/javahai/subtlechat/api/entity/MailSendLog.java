@@ -1,5 +1,11 @@
 package top.javahai.subtlechat.api.entity;
 
+import com.baomidou.mybatisplus.annotation.*;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 import java.io.Serializable;
 
@@ -9,110 +15,65 @@ import java.io.Serializable;
  * @author makejava
  * @since 2020-10-02 15:10:48
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@TableName(value = "mail_send_log")
 public class MailSendLog implements Serializable {
     private static final long serialVersionUID = 740872026109078508L;
 
+    @TableId(value = "id", type = IdType.UUID)
+    @ApiModelProperty(value = "主键")
     private String msgId;
     /**
-    * 0:反馈，1:验证码
-    */
+     * 0:反馈，1:验证码
+     */
+    @ApiModelProperty(value = "内容类型")
+    @TableField(value = "content_type")
     private Integer contentType;
 
+    @ApiModelProperty(value = "内容")
+    @TableField(value = "content")
     private String content;
 
+    @ApiModelProperty(value = "邮件地址")
+    @TableField(value = "mail_address")
+    private String mailAddress;
+
+    @ApiModelProperty(value = "状态 0-投递中，1-成功，2-失败")
+    @TableField(value = "status")
     private Integer status;
 
+    @ApiModelProperty(value = "路由key")
+    @TableField(value = "route_key")
     private String routeKey;
 
+    @ApiModelProperty(value = "exchange 交换机")
+    @TableField(value = "exchange")
     private String exchange;
 
+    @ApiModelProperty(value = "总数")
+    @TableField(value = "count")
     private Integer count;
 
+    @ApiModelProperty(value = "尝试时间")
+    @TableField(value = "try_time")
     private Date tryTime;
 
+    @ApiModelProperty(value = "创建时间")
+    @TableField(value = "create_time")
     private Date createTime;
 
+    @ApiModelProperty(value = "更新时间")
+    @TableField(value = "update_time")
     private Date updateTime;
 
-
-    public String getMsgId() {
-        return msgId;
-    }
-
-    public void setMsgId(String msgId) {
-        this.msgId = msgId;
-    }
-
-    public Integer getContentType() {
-        return contentType;
-    }
-
-    public void setContentType(Integer contentType) {
-        this.contentType = contentType;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getRouteKey() {
-        return routeKey;
-    }
-
-    public void setRouteKey(String routeKey) {
-        this.routeKey = routeKey;
-    }
-
-    public String getExchange() {
-        return exchange;
-    }
-
-    public void setExchange(String exchange) {
-        this.exchange = exchange;
-    }
-
-    public Integer getCount() {
-        return count;
-    }
-
-    public void setCount(Integer count) {
-        this.count = count;
-    }
-
-    public Date getTryTime() {
-        return tryTime;
-    }
-
-    public void setTryTime(Date tryTime) {
-        this.tryTime = tryTime;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
+    /**
+     * 是否删除
+     */
+    @TableLogic
+    @ApiModelProperty(value = "是否删除")
+    @TableField(value = "delete")
+    private Integer delete;
 
 }

@@ -1,7 +1,9 @@
 package top.javahai.subtlechat.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import top.javahai.subtlechat.api.entity.UserState;
 import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 /**
@@ -10,7 +12,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-06-16 11:36:02
  */
-public interface UserStateDao {
+public interface UserStateDao extends BaseMapper<UserState> {
 
     /**
      * 通过ID查询单条数据
@@ -24,7 +26,7 @@ public interface UserStateDao {
      * 查询指定行数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     List<UserState> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);

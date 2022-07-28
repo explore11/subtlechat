@@ -1,5 +1,9 @@
 package top.javahai.subtlechat.api.entity;
 
+import com.baomidou.mybatisplus.annotation.*;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -11,38 +15,69 @@ import java.util.Collection;
  * @author makejava
  * @since 2020-06-16 12:08:01
  */
-public class User  implements UserDetails {
+@TableName(value = "user")
+public class User implements UserDetails {
 
+    @TableId(value = "id", type = IdType.AUTO)
+    @ApiModelProperty(value = "主键")
     private Integer id;
     /**
-    * 登录账号
-    */
+     * 登录账号
+     */
+    @ApiModelProperty(value = "登录账号")
+    @TableField(value = "username")
     private String username;
     /**
-    * 昵称
-    */
+     * 昵称
+     */
+    @ApiModelProperty(value = "昵称")
+    @TableField(value = "nickname")
     private String nickname;
     /**
-    * 密码
-    */
+     * 密码
+     */
+    @ApiModelProperty(value = "密码")
+    @TableField(value = "password")
     private String password;
     /**
-    * 用户头像
-    */
+     * 用户头像
+     */
+    @ApiModelProperty(value = "用户头像")
+    @TableField(value = "user_profile")
     private String userProfile;
     /**
-    * 用户状态id
-    */
+     * 用户状态id
+     */
+    @ApiModelProperty(value = "用户状态id")
+    @TableField(value = "user_state_id")
     private Integer userStateId;
     /**
-    * 是否可用
-    */
+     * 是否可用
+     */
+    @ApiModelProperty(value = "是否可用")
+    @TableField(value = "is_enabled")
     private Boolean isEnabled;
     /**
-    * 是否被锁定
-    */
+     * 是否被锁定
+     */
+    @ApiModelProperty(value = "是否被锁定")
+    @TableField(value = "is_locked")
     private Boolean isLocked;
+    /**
+     * 是否删除
+     */
+    @TableLogic
+    @ApiModelProperty(value = "是否删除")
+    @TableField(value = "delete")
+    private Integer delete;
 
+    public Integer getDelete() {
+        return delete;
+    }
+
+    public void setDelete(Integer delete) {
+        this.delete = delete;
+    }
 
     public Integer getId() {
         return id;
@@ -65,7 +100,7 @@ public class User  implements UserDetails {
     //账号是否不锁定
     @Override
     public boolean isAccountNonLocked() {
-        return  !isLocked;
+        return !isLocked;
     }
 
     @Override
@@ -75,7 +110,7 @@ public class User  implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return  isEnabled;
+        return isEnabled;
     }
 
     public void setUsername(String username) {
@@ -92,6 +127,7 @@ public class User  implements UserDetails {
 
     /**
      * 获取用户拥有的所有角色
+     *
      * @return
      */
     @Override

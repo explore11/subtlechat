@@ -14,17 +14,18 @@ import java.util.Date;
 @Component
 public class DateConverter implements Converter<String, Date> {
 
-  SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-  @Override
-  public Date convert(String s) {
-    Date date = null;
-    if (s!=null&&!"".equals(s)){
-      try {
-       date= simpleDateFormat.parse(s);
-      } catch (ParseException e) {
-        e.printStackTrace();
-      }
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+    @Override
+    public Date convert(String s) {
+        Date date = null;
+        if (s != null && !"".equals(s)) {
+            try {
+                date = simpleDateFormat.parse(s);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return date;
     }
-    return date;
-  }
 }

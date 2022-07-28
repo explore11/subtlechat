@@ -1,5 +1,6 @@
 package top.javahai.subtlechat.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.security.core.parameters.P;
 import top.javahai.subtlechat.api.entity.MailSendLog;
@@ -13,7 +14,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-10-02 14:40:33
  */
-public interface MailSendLogDao {
+public interface MailSendLogDao extends BaseMapper<MailSendLog> {
 
     /**
      * 通过ID查询单条数据
@@ -27,7 +28,7 @@ public interface MailSendLogDao {
      * 查询指定行数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     List<MailSendLog> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
@@ -65,11 +66,11 @@ public interface MailSendLogDao {
      */
     int deleteById(String msgId);
 
-    void updateMailSendLogStatus(@Param("msgId") String msgId,@Param("status") int i);
+    void updateMailSendLogStatus(@Param("msgId") String msgId, @Param("status") int i);
 
     List<MailSendLog> getMailSendLogsByStatus(@Param("delivering") Integer delivering);
 
-    void updateCount(@Param("msgId") String msgId,@Param("date") Date date);
+    void updateCount(@Param("msgId") String msgId, @Param("date") Date date);
 
     String getMsgById(@Param("msgId") String msgId);
 }

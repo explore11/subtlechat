@@ -1,7 +1,9 @@
 package top.javahai.subtlechat.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import top.javahai.subtlechat.api.entity.User;
 import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 /**
@@ -10,10 +12,11 @@ import java.util.List;
  * @author makejava
  * @since 2020-06-16 12:06:29
  */
-public interface UserDao {
+public interface UserDao extends BaseMapper<User> {
 
     /**
      * 根据用户名查询用户对象
+     *
      * @param username
      * @return
      */
@@ -22,6 +25,7 @@ public interface UserDao {
 
     /**
      * 获取除当前用户的所有用户
+     *
      * @param id
      * @return
      */
@@ -39,7 +43,7 @@ public interface UserDao {
      * 查询指定行数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     List<User> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
@@ -85,11 +89,11 @@ public interface UserDao {
 
     Integer checkNickname(String nickname);
 
-    List<User> getAllUserByPage(@Param("page") Integer page, @Param("size") Integer size,String keyword,Integer isLocked);
+    List<User> getAllUserByPage(@Param("page") Integer page, @Param("size") Integer size, String keyword, Integer isLocked);
 
-    Long getTotal(@Param("keyword") String keyword,@Param("isLocked") Integer isLocked);
+    Long getTotal(@Param("keyword") String keyword, @Param("isLocked") Integer isLocked);
 
     Integer changeLockedStatus(@Param("id") Integer id, @Param("isLocked") Boolean isLocked);
 
-  Integer deleteByIds(@Param("ids") Integer[] ids);
+    Integer deleteByIds(@Param("ids") Integer[] ids);
 }
