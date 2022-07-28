@@ -1,4 +1,4 @@
-package top.javahai.subtlechat.api.config;
+package top.javahai.subtlechat.config;
 
 import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;
 import com.google.common.base.Predicate;

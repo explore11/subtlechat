@@ -30,8 +30,8 @@ public class AdminController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("selectOne")
     @ApiOperation("查询单条数据")
+    @GetMapping("selectOne")
     public Admin selectOne(Integer id) {
         return this.adminService.queryById(id);
     }
