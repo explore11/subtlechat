@@ -50,7 +50,7 @@ public class Result<T> implements Serializable {
         return new Result<>(ResultCode.SUCCESS.code(), message, data);
     }
 
-    public static <T> Result<T> success(Integer code,String message) {
+    public static <T> Result<T> success(Integer code, String message) {
         return new Result<>(code, message);
     }
 

@@ -24,7 +24,7 @@ public class MailSendTask {
     @Autowired
     RabbitTemplate rabbitTemplate;
 
-//    @Scheduled(cron = "0/10 * * * * ?")
+    //    @Scheduled(cron = "0/10 * * * * ?")
     public void mailSendTask() {
         //TODO 这里每十秒就查询一次，可以考虑使用视图和索引提高效率
         //获取发送失败且到达指定重试时间的消息记录
@@ -37,9 +37,9 @@ public class MailSendTask {
                 //更新消息投递的尝试次数和时间
                 mailSendLogService.updateCount(mailSendLog.getMsgId(), new Date());
                 //获取消息
-                String message=mailSendLogService.getMsgById(mailSendLog.getMsgId());
+                String message = mailSendLogService.getMsgById(mailSendLog.getMsgId());
                 //再次投递消息
-                rabbitTemplate.convertAndSend(mailSendLog.getExchange(),mailSendLog.getRouteKey(), message, new CorrelationData(mailSendLog.getMsgId()));
+                rabbitTemplate.convertAndSend(mailSendLog.getExchange(), mailSendLog.getRouteKey(), message, new CorrelationData(mailSendLog.getMsgId()));
 
             }
         });

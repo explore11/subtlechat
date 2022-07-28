@@ -27,6 +27,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     /**
      * 根据用户名进行登录
+     *
      * @param username
      * @return
      * @throws UsernameNotFoundException
@@ -34,7 +35,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userDao.loadUserByUsername(username);
-        if (user==null){
+        if (user == null) {
             throw new UsernameNotFoundException("用户不存在");
         }
         return user;
@@ -42,22 +43,27 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     /**
      * 获取除了当前用户的所有user表的数据
+     *
      * @return
      */
     @Override
     public List<User> getUsersWithoutCurrentUser() {
         return userDao.getUsersWithoutCurrentUser(UserUtil.getCurrentUser().getId());
     }
+
     /**
      * 设置用户当前状态为在线
+     *
      * @param id 用户id
      */
     @Override
     public void setUserStateToOn(Integer id) {
         userDao.setUserStateToOn(id);
     }
+
     /**
      * 设置用户当前状态为离线
+     *
      * @param id 用户id
      */
     @Override
@@ -80,7 +86,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
      * 查询多条数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     @Override
@@ -103,7 +109,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         user.setUserStateId(2);
         user.setEnabled(true);
         user.setLocked(false);
-        return  this.userDao.insert(user);
+        return this.userDao.insert(user);
     }
 
     /**
@@ -139,14 +145,14 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public RespPageBean getAllUserByPage(Integer page, Integer size,String keyword,Integer isLocked) {
-        if (page!=null&&size!=null){
-            page=(page-1)*size;//起始下标
+    public RespPageBean getAllUserByPage(Integer page, Integer size, String keyword, Integer isLocked) {
+        if (page != null && size != null) {
+            page = (page - 1) * size;//起始下标
         }
         //获取用户数据
-        List<User> userList=userDao.getAllUserByPage(page,size,keyword,isLocked);
+        List<User> userList = userDao.getAllUserByPage(page, size, keyword, isLocked);
         //获取用户数据的总数
-        Long total=userDao.getTotal(keyword,isLocked);
+        Long total = userDao.getTotal(keyword, isLocked);
         RespPageBean respPageBean = new RespPageBean();
         respPageBean.setData(userList);
         respPageBean.setTotal(total);
@@ -155,12 +161,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public Integer changeLockedStatus(Integer id, Boolean isLocked) {
-        return userDao.changeLockedStatus(id,isLocked);
+        return userDao.changeLockedStatus(id, isLocked);
     }
 
-  @Override
-  public Integer deleteByIds(Integer[] ids) {
-    return userDao.deleteByIds(ids);
-  }
+    @Override
+    public Integer deleteByIds(Integer[] ids) {
+        return userDao.deleteByIds(ids);
+    }
 
 }

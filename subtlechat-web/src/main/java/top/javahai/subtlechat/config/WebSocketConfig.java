@@ -13,24 +13,26 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
-  /**
-   * 注册stomp站点
-   * @param registry
-   */
-  @Override
-  public void registerStompEndpoints(StompEndpointRegistry registry) {
+    /**
+     * 注册stomp站点
+     *
+     * @param registry
+     */
+    @Override
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
 
-    registry.addEndpoint("/ws/ep").setAllowedOrigins("*").withSockJS();
+        registry.addEndpoint("/ws/ep").setAllowedOrigins("*").withSockJS();
 
-  }
+    }
 
-  /**
-   * 注册拦截"/topic","/queue"的消息
-   * @param registry
-   */
-  @Override
-  public void configureMessageBroker(MessageBrokerRegistry registry) {
-    registry.enableSimpleBroker("/topic","/queue");
+    /**
+     * 注册拦截"/topic","/queue"的消息
+     *
+     * @param registry
+     */
+    @Override
+    public void configureMessageBroker(MessageBrokerRegistry registry) {
+        registry.enableSimpleBroker("/topic", "/queue");
 
-  }
+    }
 }

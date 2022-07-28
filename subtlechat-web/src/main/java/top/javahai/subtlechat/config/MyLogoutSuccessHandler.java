@@ -19,12 +19,12 @@ import java.io.PrintWriter;
 @Configuration
 public class MyLogoutSuccessHandler implements LogoutSuccessHandler {
 
-  @Override
+    @Override
     public void onLogoutSuccess(HttpServletRequest req, HttpServletResponse resp, Authentication authentication) throws IOException, ServletException {
-      resp.setContentType("application/json;charset=utf-8");
-      PrintWriter out=resp.getWriter();
-      out.write(new ObjectMapper().writeValueAsString(RespBean.ok("成功退出！")));
-      out.flush();
-      out.close();
-  }
+        resp.setContentType("application/json;charset=utf-8");
+        PrintWriter out = resp.getWriter();
+        out.write(new ObjectMapper().writeValueAsString(RespBean.ok("成功退出！")));
+        out.flush();
+        out.close();
+    }
 }

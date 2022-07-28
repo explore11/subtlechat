@@ -15,17 +15,16 @@ import java.sql.SQLException;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-  /*
-  处理SQLException异常
-   */
-  @ExceptionHandler(SQLException.class)
-  public RespBean sqlExceptionHandler(SQLException e){
-    if (e instanceof MySQLIntegrityConstraintViolationException){
-      return RespBean.error("该数据与其他数据存在关联，无法删除！");
+    /*
+    处理SQLException异常
+     */
+    @ExceptionHandler(SQLException.class)
+    public RespBean sqlExceptionHandler(SQLException e) {
+        if (e instanceof MySQLIntegrityConstraintViolationException) {
+            return RespBean.error("该数据与其他数据存在关联，无法删除！");
+        } else {
+            e.printStackTrace();
+            return RespBean.error("数据库异常，操作失败！");
+        }
     }
-    else {
-      e.printStackTrace();
-      return RespBean.error("数据库异常，操作失败！");
-    }
-  }
 }

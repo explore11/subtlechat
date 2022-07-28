@@ -44,7 +44,7 @@ public class GroupMsgContentServiceImpl implements GroupMsgContentService {
      * 查询多条数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     @Override
@@ -89,11 +89,11 @@ public class GroupMsgContentServiceImpl implements GroupMsgContentService {
 
     @Override
     public RespPageBean getAllGroupMsgContentByPage(Integer page, Integer size, String nickname, Integer type, Date[] dateScope) {
-        if (page!=null&&size!=null){
-            page=(page-1)*size;
+        if (page != null && size != null) {
+            page = (page - 1) * size;
         }
         List<GroupMsgContent> allGroupMsgContentByPage = groupMsgContentDao.getAllGroupMsgContentByPage(page, size, nickname, type, dateScope);
-        Long total=groupMsgContentDao.getTotal(nickname, type, dateScope);
+        Long total = groupMsgContentDao.getTotal(nickname, type, dateScope);
         RespPageBean respPageBean = new RespPageBean();
         respPageBean.setData(allGroupMsgContentByPage);
         respPageBean.setTotal(total);
@@ -107,6 +107,7 @@ public class GroupMsgContentServiceImpl implements GroupMsgContentService {
 
     /**
      * 处理群聊记录的导出
+     *
      * @param response
      * @throws IOException
      */
@@ -131,7 +132,7 @@ public class GroupMsgContentServiceImpl implements GroupMsgContentService {
 
         //写出数据到HttpServletResponse中
         //EasyExcel.write(response.getOutputStream(),GroupMsgContentData.class).sheet("sheet1").doWrite(convertedData);
-        EasyExcel.write(response.getOutputStream(),GroupMsgContent.class).sheet("sheet1").doWrite(data);
+        EasyExcel.write(response.getOutputStream(), GroupMsgContent.class).sheet("sheet1").doWrite(data);
 
     }
 

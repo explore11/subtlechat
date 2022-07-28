@@ -34,34 +34,37 @@ public class RabbitMQConfig {
 
 
     @Bean
-    DirectExchange mailExchange(){
-        return new DirectExchange(mailExchange,true,false);
+    DirectExchange mailExchange() {
+        return new DirectExchange(mailExchange, true, false);
     }
 
     /**
      * 验证码消息队列
+     *
      * @return
      */
     @Bean
-    Queue mailQueueVerifyCode(){
-        return new Queue(mailQueueVerifyCode,true);
+    Queue mailQueueVerifyCode() {
+        return new Queue(mailQueueVerifyCode, true);
     }
 
     @Bean
-    Binding mailQueueVerifyCodeBinding(){
+    Binding mailQueueVerifyCodeBinding() {
         return BindingBuilder.bind(mailQueueVerifyCode()).to(mailExchange()).with(mailRouteVerifyCode);
     }
 
     /**
      * 反馈消息队列
+     *
      * @return
      */
     @Bean
-    Queue mailQueueFeedback(){
-        return new Queue(mailQueueFeedback,true);
+    Queue mailQueueFeedback() {
+        return new Queue(mailQueueFeedback, true);
     }
+
     @Bean
-    Binding mailQueueFeedbackBinding(){
+    Binding mailQueueFeedbackBinding() {
         return BindingBuilder.bind(mailQueueFeedback()).to(mailExchange()).with(mailRouteFeedback);
     }
 

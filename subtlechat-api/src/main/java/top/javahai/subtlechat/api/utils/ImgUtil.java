@@ -41,7 +41,7 @@ public class ImgUtil {
         }
         long srcSize = imageBytes.length;
         //double accuracy = getAccuracy(srcSize / 1024);
-        double accuracy=0.4;
+        double accuracy = 0.4;
         try {
             while (imageBytes.length > desFileSize * 1024) {
                 ByteArrayInputStream inputStream = new ByteArrayInputStream(imageBytes);

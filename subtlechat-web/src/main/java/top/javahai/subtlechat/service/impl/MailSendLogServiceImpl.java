@@ -35,7 +35,7 @@ public class MailSendLogServiceImpl implements MailSendLogService {
      * 查询多条数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     @Override
@@ -80,7 +80,7 @@ public class MailSendLogServiceImpl implements MailSendLogService {
 
     @Override
     public void updateMailSendLogStatus(String msgId, int i) {
-        this.mailSendLogDao.updateMailSendLogStatus(msgId,i);
+        this.mailSendLogDao.updateMailSendLogStatus(msgId, i);
     }
 
     @Override
@@ -90,12 +90,12 @@ public class MailSendLogServiceImpl implements MailSendLogService {
 
     @Override
     public void updateCount(String msgId, Date date) {
-        this.mailSendLogDao.updateCount(msgId,date);
+        this.mailSendLogDao.updateCount(msgId, date);
     }
 
     @Override
     public String getMsgById(String msgId) {
-        return  this.mailSendLogDao.getMsgById(msgId);
+        return this.mailSendLogDao.getMsgById(msgId);
     }
 
 

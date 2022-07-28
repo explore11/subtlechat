@@ -16,43 +16,44 @@ import java.security.NoSuchAlgorithmException;
  * @date 2020/6/20 - 23:43
  */
 public class FastDFSUtil {
-  private static StorageClient1 client1;
+    private static StorageClient1 client1;
 
-  static{
-    try{
-      ClientGlobal.initByProperties("fastdfs-client.properties");
-      TrackerClient trackerClient=new TrackerClient();
-      TrackerServer trackerServer=trackerClient.getConnection();
-      client1=new StorageClient1(trackerServer,null);
-    } catch (IOException e) {
-      e.printStackTrace();
-    } catch (MyException e) {
-      e.printStackTrace();
+    static {
+        try {
+            ClientGlobal.initByProperties("fastdfs-client.properties");
+            TrackerClient trackerClient = new TrackerClient();
+            TrackerServer trackerServer = trackerClient.getConnection();
+            client1 = new StorageClient1(trackerServer, null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (MyException e) {
+            e.printStackTrace();
+        }
     }
-  }
 
-  /**
-   * 上传文件
-   * @param file
-   * @return
-   * @throws IOException
-   * @throws MyException
-   */
-  public static String upload(MultipartFile file) throws IOException, MyException {
-    //文件名
-    String oldName=file.getOriginalFilename();
-    //返回上传到服务器的路径
-    //文件拓展名oldName.substring(oldName.lastIndexOf(".")+1)
-    return client1.upload_file1(file.getBytes(),oldName.substring(oldName.lastIndexOf(".")+1),null);
-  }
+    /**
+     * 上传文件
+     *
+     * @param file
+     * @return
+     * @throws IOException
+     * @throws MyException
+     */
+    public static String upload(MultipartFile file) throws IOException, MyException {
+        //文件名
+        String oldName = file.getOriginalFilename();
+        //返回上传到服务器的路径
+        //文件拓展名oldName.substring(oldName.lastIndexOf(".")+1)
+        return client1.upload_file1(file.getBytes(), oldName.substring(oldName.lastIndexOf(".") + 1), null);
+    }
 
-  /**
-   *获取访问文件的令牌
-   * @throws UnsupportedEncodingException
-   * @throws NoSuchAlgorithmException
-   * @throws MyException
-   * @return
-   */
+    /**
+     *获取访问文件的令牌
+     * @throws UnsupportedEncodingException
+     * @throws NoSuchAlgorithmException
+     * @throws MyException
+     * @return
+     */
 //  public static StringBuilder getToken(String fileId) throws UnsupportedEncodingException, NoSuchAlgorithmException, MyException {
 //    int ts = (int) Instant.now().getEpochSecond();
 //    fileId=fileId.substring(7);

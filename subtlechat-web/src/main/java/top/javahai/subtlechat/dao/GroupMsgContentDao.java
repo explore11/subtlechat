@@ -27,7 +27,7 @@ public interface GroupMsgContentDao extends BaseMapper<GroupMsgContent> {
      * 查询指定行数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     List<GroupMsgContent> queryAllByLimit(@Param("offset") Integer offset, @Param("limit") Integer limit);
@@ -66,10 +66,10 @@ public interface GroupMsgContentDao extends BaseMapper<GroupMsgContent> {
     int deleteById(Integer id);
 
     List<GroupMsgContent> getAllGroupMsgContentByPage(@Param("page") Integer page,
-                                             @Param("size") Integer size,
-                                             @Param("nickname") String nickname,
-                                             @Param("type") Integer type,
-                                             @Param("dateScope") Date[] dateScope);
+                                                      @Param("size") Integer size,
+                                                      @Param("nickname") String nickname,
+                                                      @Param("type") Integer type,
+                                                      @Param("dateScope") Date[] dateScope);
 
     Long getTotal(@Param("nickname") String nickname,
                   @Param("type") Integer type,

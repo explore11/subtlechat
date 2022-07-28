@@ -27,31 +27,33 @@ public class UserController {
      * 注册操作
      */
     @PostMapping("/register")
-    public RespBean addUser(@RequestBody User user){
-        if (userService.insert(user)==1){
+    public RespBean addUser(@RequestBody User user) {
+        if (userService.insert(user) == 1) {
             return RespBean.ok("注册成功！");
-        }else{
+        } else {
             return RespBean.error("注册失败！");
         }
     }
 
     /**
      * 注册操作，检查用户名是否已被注册
+     *
      * @param username
      * @return
      */
     @GetMapping("/checkUsername")
-    public Integer checkUsername(@RequestParam("username")String username){
+    public Integer checkUsername(@RequestParam("username") String username) {
         return userService.checkUsername(username);
     }
 
     /**
      * 注册操作，检查昵称是否已被注册
+     *
      * @param nickname
      * @return
      */
     @GetMapping("/checkNickname")
-    public Integer checkNickname(@RequestParam("nickname") String nickname){
+    public Integer checkNickname(@RequestParam("nickname") String nickname) {
         return userService.checkNickname(nickname);
     }
 
@@ -67,63 +69,65 @@ public class UserController {
     }
 
     /**
-     * @author luo
-     * @param page  页数，对应数据库查询的起始行数
-     * @param size  数据量，对应数据库查询的偏移量
-     * @param keyword 关键词，用于搜索
-     * @param isLocked  是否锁定，用于搜索
+     * @param page     页数，对应数据库查询的起始行数
+     * @param size     数据量，对应数据库查询的偏移量
+     * @param keyword  关键词，用于搜索
+     * @param isLocked 是否锁定，用于搜索
      * @return
+     * @author luo
      */
     @GetMapping("/")
-    public RespPageBean getAllUserByPage(@RequestParam(value = "page",defaultValue = "1") Integer page,
-                                         @RequestParam(value = "size",defaultValue = "10") Integer size,
-                                         String keyword,Integer isLocked){
-        return userService.getAllUserByPage(page,size,keyword,isLocked);
+    public RespPageBean getAllUserByPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
+                                         @RequestParam(value = "size", defaultValue = "10") Integer size,
+                                         String keyword, Integer isLocked) {
+        return userService.getAllUserByPage(page, size, keyword, isLocked);
     }
 
     /**
      * 更新用户的锁定状态
-     * @author luo
+     *
      * @param id
      * @param isLocked
      * @return
+     * @author luo
      */
     @PutMapping("/")
-    public RespBean changeLockedStatus(@RequestParam("id") Integer id,@RequestParam("isLocked") Boolean isLocked){
-      if (userService.changeLockedStatus(id,isLocked)==1){
-          return RespBean.ok("更新成功！");
-      }else {
-          return RespBean.error("更新失败！");
-      }
+    public RespBean changeLockedStatus(@RequestParam("id") Integer id, @RequestParam("isLocked") Boolean isLocked) {
+        if (userService.changeLockedStatus(id, isLocked) == 1) {
+            return RespBean.ok("更新成功！");
+        } else {
+            return RespBean.error("更新失败！");
+        }
     }
 
     /**
      * 删除单一用户
-     * @author luo
+     *
      * @param id
      * @return
+     * @author luo
      */
     @DeleteMapping("/{id}")
-    public RespBean deleteUser(@PathVariable Integer id){
-        if (userService.deleteById(id)){
+    public RespBean deleteUser(@PathVariable Integer id) {
+        if (userService.deleteById(id)) {
             return RespBean.ok("删除成功！");
-        }
-        else{
+        } else {
             return RespBean.error("删除失败！");
         }
     }
 
     /**
      * 批量删除用户
-     * @author luo
+     *
      * @param ids
      * @return
+     * @author luo
      */
     @DeleteMapping("/")
-    public RespBean deleteUserByIds(Integer[] ids){
-        if (userService.deleteByIds(ids)==ids.length){
+    public RespBean deleteUserByIds(Integer[] ids) {
+        if (userService.deleteByIds(ids) == ids.length) {
             return RespBean.ok("删除成功！");
-        }else{
+        } else {
             return RespBean.error("删除失败！");
         }
     }

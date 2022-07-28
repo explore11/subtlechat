@@ -1,6 +1,7 @@
 package top.javahai.subtlechat.service;
 
 import top.javahai.subtlechat.api.entity.Admin;
+
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ public interface AdminService {
      * 查询多条数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     List<Admin> queryAllByLimit(int offset, int limit);

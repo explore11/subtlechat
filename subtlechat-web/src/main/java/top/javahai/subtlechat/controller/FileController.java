@@ -16,17 +16,15 @@ import java.io.IOException;
 @RestController
 public class FileController {
 
-  @Value("${fastdfs.nginx.host}")
-  String nginxHost;
+    @Value("${fastdfs.nginx.host}")
+    String nginxHost;
 
-  @PostMapping("/file")
-  public String uploadFlie(MultipartFile file) throws IOException, MyException {
-    String fileId= FastDFSUtil.upload(file);
-    String url=nginxHost+fileId;
-    return url;
-  }
-
-
+    @PostMapping("/file")
+    public String uploadFlie(MultipartFile file) throws IOException, MyException {
+        String fileId = FastDFSUtil.upload(file);
+        String url = nginxHost + fileId;
+        return url;
+    }
 
 
 }

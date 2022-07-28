@@ -57,11 +57,11 @@ public class Swagger2Config {
     }
 
     /**
+     * @return void
      * @Description:用于多模块添加需要扫描的包
      * @Author LinJia
      * @Date 2021/9/18
      * @Param [docket, basePackage]
-     * @return void
      */
     public static void addBasePackage(Docket docket, String... basePackage) {
         docket.select()
@@ -71,11 +71,11 @@ public class Swagger2Config {
     }
 
     /**
+     * @return com.google.common.base.Predicate<springfox.documentation.RequestHandler>
      * @Description:扫描多包
      * @Author LinJia
      * @Date 2021/9/18
      * @Param [basePackage]
-     * @return com.google.common.base.Predicate<springfox.documentation.RequestHandler>
      */
     private static Predicate<RequestHandler> basePackage(final String... basePackage) {
         for (String strBasePackage : basePackage) {

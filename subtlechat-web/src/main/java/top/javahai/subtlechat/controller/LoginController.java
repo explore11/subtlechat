@@ -20,35 +20,38 @@ import java.util.Random;
  */
 @RestController
 public class LoginController {
-  /**
-   * 获取验证码图片写到响应的输出流中，保存验证码到session
-   * @param response
-   * @param session
-   * @throws IOException
-   */
-  @GetMapping("/verifyCode")
-  public void getVerifyCode(HttpServletResponse response, HttpSession session) throws IOException {
-    VerificationCode code = new VerificationCode();
-    BufferedImage image = code.getImage();
-    String text = code.getText();
-    session.setAttribute("verify_code",text);
-    VerificationCode.output(image,response.getOutputStream());
-  }
+    /**
+     * 获取验证码图片写到响应的输出流中，保存验证码到session
+     *
+     * @param response
+     * @param session
+     * @throws IOException
+     */
+    @GetMapping("/verifyCode")
+    public void getVerifyCode(HttpServletResponse response, HttpSession session) throws IOException {
+        VerificationCode code = new VerificationCode();
+        BufferedImage image = code.getImage();
+        String text = code.getText();
+        session.setAttribute("verify_code", text);
+        VerificationCode.output(image, response.getOutputStream());
+    }
 
 
-  @Autowired
-  VerifyCodeService verifyCodeService;
-  /**
-   * 获取邮箱验证码，并保存到本次会话
-   * @param session
-   */
-  @GetMapping("/admin/mailVerifyCode")
-  public RespBean getMailVerifyCode(HttpSession session){
-      String code = verifyCodeService.getVerifyCode();
-      //保存验证码到本次会话
-      session.setAttribute("mail_verify_code",code);
-      verifyCodeService.sendVerifyCodeMail(code);
-      return RespBean.ok("验证码已发送到邮箱，请注意查看！");
+    @Autowired
+    VerifyCodeService verifyCodeService;
+
+    /**
+     * 获取邮箱验证码，并保存到本次会话
+     *
+     * @param session
+     */
+    @GetMapping("/admin/mailVerifyCode")
+    public RespBean getMailVerifyCode(HttpSession session) {
+        String code = verifyCodeService.getVerifyCode();
+        //保存验证码到本次会话
+        session.setAttribute("mail_verify_code", code);
+        verifyCodeService.sendVerifyCodeMail(code);
+        return RespBean.ok("验证码已发送到邮箱，请注意查看！");
 
 //    //获取随机的四个数字
 //    StringBuilder code=new StringBuilder();
@@ -72,5 +75,5 @@ public class LoginController {
 //      e.printStackTrace();
 //      return RespBean.error("服务器出错啦！请稍后重试！");
 //    }
-  }
+    }
 }

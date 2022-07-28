@@ -60,7 +60,7 @@ public class FeedbackServiceImpl implements FeedbackService {
      * 查询多条数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     @Override
@@ -111,7 +111,7 @@ public class FeedbackServiceImpl implements FeedbackService {
         //将内容转化为JSON字符串
         String record = JsonUtil.parseToString(feedback);
         //添加消息发送记录
-        String msgId=UUID.randomUUID().toString();
+        String msgId = UUID.randomUUID().toString();
         MailSendLog sendLog = new MailSendLog();
         sendLog.setMsgId(msgId);
         sendLog.setContent(record);
@@ -120,13 +120,13 @@ public class FeedbackServiceImpl implements FeedbackService {
         sendLog.setCreateTime(new Date());
         sendLog.setUpdateTime(new Date());
         //当前超过一分钟后开始重试
-        sendLog.setTryTime(new Date(System.currentTimeMillis()+1000*60*MailConstants.MEG_TIMEOUT));
+        sendLog.setTryTime(new Date(System.currentTimeMillis() + 1000 * 60 * MailConstants.MEG_TIMEOUT));
         sendLog.setExchange(mailExchange);
         sendLog.setRouteKey(mailRouteFeedback);
         sendLog.setStatus(MailConstants.DELIVERING);
         //新增消息发送记录
         mailSendLogService.insert(sendLog);
         //投递消息
-        rabbitTemplate.convertAndSend(mailExchange,mailRouteFeedback,record,new CorrelationData(msgId));
+        rabbitTemplate.convertAndSend(mailExchange, mailRouteFeedback, record, new CorrelationData(msgId));
     }
 }

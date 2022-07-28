@@ -24,18 +24,20 @@ public class AdminServiceImpl implements AdminService, UserDetailsService {
 
     /**
      * 根据用户名进行登录
+     *
      * @param username
      * @return
      * @throws UsernameNotFoundException
      */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Admin admin=adminDao.loadUserByUsername(username);
-        if (admin==null){
+        Admin admin = adminDao.loadUserByUsername(username);
+        if (admin == null) {
             throw new UsernameNotFoundException("找不到该管理员");
         }
         return admin;
     }
+
     /**
      * 通过ID查询单条数据
      *
@@ -51,7 +53,7 @@ public class AdminServiceImpl implements AdminService, UserDetailsService {
      * 查询多条数据
      *
      * @param offset 查询起始位置
-     * @param limit 查询条数
+     * @param limit  查询条数
      * @return 对象列表
      */
     @Override

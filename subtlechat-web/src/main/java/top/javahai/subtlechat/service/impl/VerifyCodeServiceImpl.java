@@ -35,8 +35,8 @@ public class VerifyCodeServiceImpl implements VerifyCodeService {
 
     @Override
     public String getVerifyCode() {
-        StringBuilder code=new StringBuilder();
-        for (int i = 0; i <4; i++) {
+        StringBuilder code = new StringBuilder();
+        for (int i = 0; i < 4; i++) {
             code.append(new Random().nextInt(10));
         }
         return code.toString();
@@ -52,14 +52,14 @@ public class VerifyCodeServiceImpl implements VerifyCodeService {
         mailSendLog.setContentType(MailConstants.VERIFY_CODE_TYPE);
         mailSendLog.setCount(1);
         mailSendLog.setCreateTime(new Date());
-        mailSendLog.setTryTime(new Date(System.currentTimeMillis()+1000*10*MailConstants.MEG_TIMEOUT));
+        mailSendLog.setTryTime(new Date(System.currentTimeMillis() + 1000 * 10 * MailConstants.MEG_TIMEOUT));
         mailSendLog.setUpdateTime(new Date());
         mailSendLog.setExchange(mailExchange);
         mailSendLog.setRouteKey(mailRouteVerifyCode);
         mailSendLog.setStatus(MailConstants.DELIVERING);
         mailSendLogService.insert(mailSendLog);
 
-        rabbitTemplate.convertAndSend(mailExchange,mailRouteVerifyCode,code,new CorrelationData(msgId));
+        rabbitTemplate.convertAndSend(mailExchange, mailRouteVerifyCode, code, new CorrelationData(msgId));
 
     }
 }

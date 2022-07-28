@@ -16,11 +16,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/chat")
 public class ChatController {
-  @Autowired
-  UserService userService;
+    @Autowired
+    UserService userService;
 
-  @GetMapping("/users")
-  public List<User> getUsersWithoutCurrentUser(){
-    return userService.getUsersWithoutCurrentUser();
-  }
+    @GetMapping("/users")
+    public List<User> getUsersWithoutCurrentUser() {
+        return userService.getUsersWithoutCurrentUser();
+    }
 }
