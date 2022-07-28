@@ -1,0 +1,27 @@
+# 数据库配置
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost/subtlechat
+    password: root
+    username: root
+  #RabbitMQ的配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /subtlechat
+    #将消息确认投递到交换机的确认类型改为交互
+    publisher-returns: true
+    publisher-confirms-type: correlated
+#mapper文件位置配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+#sql日志显示
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#FastDFS文件服务器的主机名
+fastdfs:
+  nginx:
+    host:

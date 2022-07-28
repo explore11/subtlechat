@@ -1,0 +1,8 @@
+server:
+  port: 8802
+
+spring:
+  application:
+    name: subtlechat-web
+  profiles:
+    active: dev
