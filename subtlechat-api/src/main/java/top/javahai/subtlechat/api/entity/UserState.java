@@ -37,6 +37,7 @@ public class UserState implements Serializable {
      */
     @TableLogic
     @ApiModelProperty(value = "是否删除")
-    private Integer delete;
+    @TableField(value = "is_delete")
+    private Integer isDelete;
 
 }

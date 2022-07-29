@@ -87,8 +87,6 @@ public class VerificationCode {
 
     /**
      * 绘制干扰线
-     *
-     * @param image
      */
     private void drawLine(BufferedImage image) {
         Graphics2D g2 = (Graphics2D) image.getGraphics();

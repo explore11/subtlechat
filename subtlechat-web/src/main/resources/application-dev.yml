@@ -19,8 +19,8 @@ spring:
 #mybatis:
 #  mapper-locations: classpath:mapper/*.xml
 #sql日志显示
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 
 #mybatis-plus
@@ -28,7 +28,7 @@ mybatis-plus:
   configuration:
     lazy-loading-enabled: true
     local-cache-scope: statement
-    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath*:mapper/**/*.xml
   global-config:
     db-config:

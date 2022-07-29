@@ -73,7 +73,7 @@ public class MailSendLog implements Serializable {
      */
     @TableLogic
     @ApiModelProperty(value = "是否删除")
-    @TableField(value = "delete")
-    private Integer delete;
+    @TableField(value = "is_delete")
+    private Integer isDelete;
 
 }

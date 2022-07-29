@@ -36,4 +36,10 @@ public class AdminController {
         return this.adminService.queryById(id);
     }
 
+    @ApiOperation("插入单条数据")
+    @PostMapping("/insertAdmin")
+    public Admin insertAdmin(@RequestBody Admin admin) {
+        return this.adminService.insert(admin);
+    }
+
 }

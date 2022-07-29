@@ -15,6 +15,10 @@
     <description>the common used api for SubtleChat application</description>
     <packaging>jar</packaging>
     <dependencies>
+        <dependency>
+            <groupId>p6spy</groupId>
+            <artifactId>p6spy</artifactId>
+        </dependency>
         <!--swagger-->
         <dependency>
             <groupId>io.springfox</groupId>

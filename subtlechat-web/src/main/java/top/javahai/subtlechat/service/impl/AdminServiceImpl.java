@@ -3,6 +3,7 @@ package top.javahai.subtlechat.service.impl;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import top.javahai.subtlechat.api.entity.Admin;
 import top.javahai.subtlechat.dao.AdminDao;
 import top.javahai.subtlechat.service.AdminService;
@@ -69,6 +70,10 @@ public class AdminServiceImpl implements AdminService, UserDetailsService {
      */
     @Override
     public Admin insert(Admin admin) {
+        //对密码进行加密
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encodePass = encoder.encode(admin.getPassword());
+        admin.setPassword(encodePass);
         this.adminDao.insert(admin);
         return admin;
     }

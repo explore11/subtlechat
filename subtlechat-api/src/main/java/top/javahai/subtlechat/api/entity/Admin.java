@@ -51,8 +51,8 @@ public class Admin implements Serializable, UserDetails {
      */
     @TableLogic
     @ApiModelProperty(value = "是否删除")
-    @TableField(value = "delete")
-    private Integer delete;
+    @TableField(value = "is_delete")
+    private Integer isDelete;
 
 
     public Integer getId() {
@@ -120,11 +120,11 @@ public class Admin implements Serializable, UserDetails {
         this.userProfile = userProfile;
     }
 
-    public Integer getDelete() {
-        return delete;
+    public Integer getIsDelete() {
+        return isDelete;
     }
 
-    public void setDelete(Integer delete) {
-        this.delete = delete;
+    public void setIsDelete(Integer isDelete) {
+        this.isDelete = isDelete;
     }
 }

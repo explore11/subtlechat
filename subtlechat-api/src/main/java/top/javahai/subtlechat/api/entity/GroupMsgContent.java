@@ -88,9 +88,9 @@ public class GroupMsgContent implements Serializable {
      * 是否删除
      */
     @TableLogic
-    @TableField(value = "delete")
+    @TableField(value = "is_delete")
     @ApiModelProperty(value = "是否删除")
-    private Integer delete;
+    private Integer isDelete;
 
     @Override
     public String toString() {

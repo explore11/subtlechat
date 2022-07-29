@@ -12,9 +12,6 @@ import java.io.PrintWriter;
 
 /**
  * 拦截登录请求，验证输入的验证码是否正确
- *
- * @author Hai
- * @date 2020/5/28 - 17:31
  */
 @Component
 public class VerificationCodeFilter extends GenericFilter {
