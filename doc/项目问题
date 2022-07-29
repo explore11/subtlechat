@@ -1,0 +1,43 @@
+Incorrect string value: '\xF0\x9F...' for column 'XXX' at row 1
+这个问题，原因是UTF-8编码有可能是两个、三个、四个字节。Emoji表情或者某些特殊字符是4个字节，而Mysql的utf8编码最多3个字节，所以数据插不进去。
+
+我的解决方案是这样的
+
+1.在mysql的安装目录下找到my.ini,作如下修改：
+[mysqld]
+
+character-set-server=utf8mb4
+
+[mysql]
+
+default-character-set=utf8mb4
+
+修改后重启Mysql
+
+2. 将已经建好的表也转换成utf8mb4
+命令：
+
+更改数据库编码：ALTER DATABASE caitu99 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+alter table TABLE_NAME convert to character set utf8mb4 collate utf8mb4_bin; （将TABLE_NAME替换成你的表名）
+
+然后就OK了。网上流传的一个版本增加了一个步骤，就是把mysql环境变量将character_set_client,character_set_connection,character_set_database,character_set_results,character_set_server 都修改成utf8mb4，不过我没有做这一步，也正常，所以可能是这一步是多余的，如果需要改，则按照下面介绍做修改。
+
+3修改mysql配置文件my.cnf（windows为my.ini）
+my.cnf一般在etc/mysql/my.cnf位置。找到后请在以下三部分里添加如下内容：
+[client]
+default-character-set = utf8mb4
+[mysql]
+default-character-set = utf8mb4
+[mysqld]
+character-set-client-handshake = FALSE
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+init_connect='SET NAMES utf8mb4'
+
+参考文章：
+
+http://blog.csdn.NET/likendsl/article/details/7530979
+
+可以通过以下语句来查看character_set_server 的值：
+SHOW VARIABLES WHERE Variable_name LIKE 'character_set_%'

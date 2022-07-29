@@ -1,5 +1,7 @@
 package top.javahai.subtlechat.controller;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.github.binarywang.java.emoji.EmojiConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -8,10 +10,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import top.javahai.subtlechat.api.entity.GroupMsgContent;
 import top.javahai.subtlechat.api.entity.Message;
+import top.javahai.subtlechat.api.entity.MessageContent;
 import top.javahai.subtlechat.api.entity.User;
-import top.javahai.subtlechat.service.GroupMsgContentService;
 import top.javahai.subtlechat.api.utils.TuLingUtil;
+import top.javahai.subtlechat.dao.UserDao;
+import top.javahai.subtlechat.service.GroupMsgContentService;
+import top.javahai.subtlechat.service.MessageContentService;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,6 +30,12 @@ import java.util.Date;
 public class WsController {
     @Autowired
     SimpMessagingTemplate simpMessagingTemplate;
+    @Resource
+    private MessageContentService messageContentService;
+
+    @Resource
+    private UserDao userDao;
+
 
     /**
      * 单聊的消息的接受与转发
@@ -37,6 +49,29 @@ public class WsController {
         message.setFromNickname(user.getNickname());
         message.setFrom(user.getUsername());
         message.setCreateTime(new Date());
+
+        // 插入数据库
+        MessageContent messageContent = new MessageContent();
+        // 消息相关
+        messageContent.setContent(message.getContent());
+        messageContent.setMessageTypeId(message.getMessageTypeId());
+        // 发送方相关
+        messageContent.setFromUser(user.getUsername());
+        messageContent.setFromNickname(user.getNickname());
+        messageContent.setFromUserProfile(user.getUserProfile());
+
+        //接收方相关
+        String to = message.getTo();
+
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("username",to);
+        User toUser = userDao.selectOne(queryWrapper);
+
+        messageContent.setToUser(to);
+        messageContent.setToNickname(toUser.getNickname());
+        messageContent.setToUserProfile(toUser.getUserProfile());
+
+        messageContentService.insertMessageContent(messageContent);
         simpMessagingTemplate.convertAndSendToUser(message.getTo(), "/queue/chat", message);
     }
 

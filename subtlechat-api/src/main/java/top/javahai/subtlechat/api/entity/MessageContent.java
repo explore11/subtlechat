@@ -25,8 +25,8 @@ public class MessageContent {
     private String id;
 
     @ApiModelProperty(value = "消息的发送方的账户")
-    @TableField(value = "from")
-    private String from;
+    @TableField(value = "from_user")
+    private String fromUser;
 
     @ApiModelProperty(value = "消息的发送方的昵称")
     @TableField(value = "from_nick_name")
@@ -37,8 +37,8 @@ public class MessageContent {
     private String fromUserProfile;
 
     @ApiModelProperty(value = "消息的接收方的账户")
-    @TableField(value = "to")
-    private String to;
+    @TableField(value = "to_user")
+    private String toUser;
 
     @ApiModelProperty(value = "消息的接收方的昵称")
     @TableField(value = "to_nick_name")
@@ -57,7 +57,7 @@ public class MessageContent {
     private Integer messageTypeId;
 
     @ApiModelProperty(value = "消息的创建时间")
-    @TableField(value = "create_time")
+    @TableField(value = "create_time", fill = FieldFill.INSERT)
     private Date createTime;
 
     @ApiModelProperty(value = "是否删除")
