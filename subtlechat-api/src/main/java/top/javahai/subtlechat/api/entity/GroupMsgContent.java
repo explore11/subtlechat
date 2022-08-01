@@ -39,6 +39,15 @@ public class GroupMsgContent implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     @ApiModelProperty(value = "主键")
     private Integer id;
+
+    /**
+     * 群组id
+     */
+    @TableField(value = "group_id")
+    @ApiModelProperty(value = "群组id")
+    private Integer groupId;
+
+
     /**
      * 发送者的编号
      */

@@ -1,15 +1,13 @@
 package top.javahai.subtlechat.api.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
+import java.util.Date;
+
 
 @Data
 @AllArgsConstructor
@@ -24,6 +22,10 @@ public class GroupUserRelationship {
     @ApiModelProperty(value = "组主键")
     @TableField(value = "group_id")
     private String groupId;
+
+    @ApiModelProperty(value = "用户的id")
+    @TableField(value = "user_id")
+    private Integer userId;
 
     @ApiModelProperty(value = "用户的账户")
     @TableField(value = "user_account")
@@ -42,6 +44,11 @@ public class GroupUserRelationship {
     private String userProfile;
 
     @ApiModelProperty(value = "创建时间")
-    @TableField(value = "create_time")
+    @TableField(value = "create_time",fill = FieldFill.INSERT)
     private Date createTime;
+
+    @TableLogic
+    @TableField(value = "is_delete")
+    @ApiModelProperty(value = "是否删除")
+    private Integer isDelete;
 }

@@ -4,6 +4,7 @@
 
     <resultMap type="top.javahai.subtlechat.api.entity.GroupMsgContent" id="GroupMsgContentMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="groupId" column="group_id" jdbcType="VARCHAR"/>
         <result property="fromId" column="from_id" jdbcType="INTEGER"/>
         <result property="fromName" column="from_name" jdbcType="VARCHAR"/>
         <result property="fromProfile" column="from_profile" jdbcType="VARCHAR"/>
@@ -15,7 +16,7 @@
     <!--查询单个-->
     <select id="queryById" resultMap="GroupMsgContentMap">
         select
-          id, from_id, from_name, from_profile, create_time, content, message_type_id
+          id, group_id,from_id, from_name, from_profile, create_time, content, message_type_id
         from subtlechat.group_msg_content
         where id = #{id}
     </select>
@@ -23,21 +24,24 @@
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="GroupMsgContentMap">
         select
-          id, from_id, from_name, from_profile, create_time, content, message_type_id
+        id,group_id, from_id, from_name, from_profile, create_time, content, message_type_id
         from subtlechat.group_msg_content
         <if test="limit!=null and offset!=null">
-        limit #{offset}, #{limit}
+            limit #{offset}, #{limit}
         </if>
     </select>
 
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="GroupMsgContentMap">
         select
-          id, from_id, from_name, from_profile, create_time, content, message_type_id
+        id,group_id, from_id, from_name, from_profile, create_time, content, message_type_id
         from subtlechat.group_msg_content
         <where>
             <if test="id != null">
                 and id = #{id}
+            </if>
+            <if test="groupId != null and groupId != ''">
+                and group_id = #{groupId}
             </if>
             <if test="fromId != null">
                 and from_id = #{fromId}
@@ -62,8 +66,8 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into subtlechat.group_msg_content(from_id, from_name, from_profile, create_time, content, message_type_id)
-        values (#{fromId}, #{fromName}, #{fromProfile}, #{createTime}, #{content}, #{messageTypeId})
+        insert into subtlechat.group_msg_content(group_id,from_id, from_name, from_profile, create_time, content, message_type_id)
+        values (#{groupId},#{fromId}, #{fromName}, #{fromProfile}, #{createTime}, #{content}, #{messageTypeId})
     </insert>
 
     <!--通过主键修改数据-->
@@ -72,6 +76,9 @@
         <set>
             <if test="fromId != null">
                 from_id = #{fromId},
+            </if>
+            <if test="groupId != null and groupId != ''">
+                and group_id = #{groupId}
             </if>
             <if test="fromName != null and fromName != ''">
                 from_name = #{fromName},

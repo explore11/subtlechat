@@ -1,9 +1,6 @@
 package top.javahai.subtlechat.api.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,8 +12,8 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName(value = "group")
-public class Group implements Serializable {
+@TableName(value = "group_info")
+public class GroupInfo implements Serializable {
 
     @TableId(value = "id", type = IdType.UUID)
     @ApiModelProperty(value = "主键")
@@ -26,10 +23,13 @@ public class Group implements Serializable {
     @TableField(value = "group_name")
     private String groupName;
 
-
     @ApiModelProperty(value = "组创建时间")
-    @TableField(value = "create_time")
+    @TableField(value = "create_time",fill = FieldFill.INSERT)
     private Date createTime;
 
+    @TableLogic
+    @TableField(value = "is_delete")
+    @ApiModelProperty(value = "是否删除")
+    private Integer isDelete;
 
 }

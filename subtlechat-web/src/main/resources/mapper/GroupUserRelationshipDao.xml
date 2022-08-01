@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.javahai.subtlechat.dao.GroupUserRelationshipDao">
+    <insert id="addBatch" parameterType="java.util.List">
+        INSERT INTO `subtlechat`.`group_user_relationship` (
+        `id`, `group_id`, `user_id`, `user_account`, `user_nickname`, `user_group_nickname`, `user_profile`,
+        `create_time` )
+        VALUES
+        <foreach collection="groupUserRelationshipList" item="groupUserRelationship" index="index" separator=",">
+            (
+            uuid(),
+            #{groupUserRelationship.groupId},
+            #{groupUserRelationship.userId},
+            #{groupUserRelationship.userAccount},
+            #{groupUserRelationship.userNickname},
+            #{groupUserRelationship.userGroupNickname},
+            #{groupUserRelationship.userProfile},
+            #{groupUserRelationship.createTime}
+            )
+        </foreach>
+    </insert>
+    <select id="selfGroup" resultType="top.javahai.subtlechat.api.entity.SelfGroup">
+        SELECT
+            g.group_name AS groupName,
+            g.id AS groupId
+        FROM
+	        group_user_relationship gur
+	    JOIN `group` g ON g.id = gur.group_id
+        WHERE
+            gur.user_id = #{userId}
+        AND g.is_delete = 0
+        AND gur.is_delete = 0
+    </select>
+</mapper>

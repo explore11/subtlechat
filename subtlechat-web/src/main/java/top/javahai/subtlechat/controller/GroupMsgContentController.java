@@ -28,8 +28,8 @@ public class GroupMsgContentController {
     private GroupMsgContentService groupMsgContentService;
 
     @GetMapping("/")
-    private List<GroupMsgContent> getAllGroupMsgContent(){
-        return groupMsgContentService.queryAllByLimit(null,null);
+    private List<GroupMsgContent> getAllGroupMsgContent() {
+        return groupMsgContentService.queryAllByLimit(null, null);
     }
 
     /**
@@ -45,41 +45,44 @@ public class GroupMsgContentController {
 
     /**
      * 分页返回数据
-     * @author luo
-     * @param page 页数
-     * @param size 单页大小
-     * @param nickname 发送者昵称
-     * @param type 消息类型
+     *
+     * @param page      页数
+     * @param size      单页大小
+     * @param nickname  发送者昵称
+     * @param type      消息类型
      * @param dateScope 发送时间范围
      * @return
+     * @author luo
      */
     @GetMapping("/page")
-    public RespPageBean getAllGroupMsgContentByPage(@RequestParam(value = "page",defaultValue = "1") Integer page,
-                                                    @RequestParam(value = "size",defaultValue = "10") Integer size,
+    public RespPageBean getAllGroupMsgContentByPage(@RequestParam(value = "page", defaultValue = "1") Integer page,
+                                                    @RequestParam(value = "size", defaultValue = "10") Integer size,
                                                     String nickname, Integer type,
-                                                    Date[] dateScope){
-        return groupMsgContentService.getAllGroupMsgContentByPage(page,size,nickname,type,dateScope);
+                                                    Date[] dateScope) {
+        return groupMsgContentService.getAllGroupMsgContentByPage(page, size, nickname, type, dateScope);
     }
 
     /**
      * 根据id删除单条记录
-     * @author luo
+     *
      * @param id
      * @return
+     * @author luo
      */
     @DeleteMapping("/{id}")
-    public RespBean deleteGroupMsgContentById(@PathVariable Integer id){
-        if (groupMsgContentService.deleteById(id)){
+    public RespBean deleteGroupMsgContentById(@PathVariable Integer id) {
+        if (groupMsgContentService.deleteById(id)) {
             return RespBean.ok("删除成功！");
-        }else{
+        } else {
             return RespBean.error("删除失败！");
         }
     }
+
     @DeleteMapping("/")
-    public RespBean deleteGroupMsgContentByIds(Integer[] ids){
-        if (groupMsgContentService.deleteGroupMsgContentByIds(ids)==ids.length){
+    public RespBean deleteGroupMsgContentByIds(Integer[] ids) {
+        if (groupMsgContentService.deleteGroupMsgContentByIds(ids) == ids.length) {
             return RespBean.ok("删除成功！");
-        }else {
+        } else {
             return RespBean.error("删除失败！");
         }
     }
@@ -90,5 +93,5 @@ public class GroupMsgContentController {
 
         groupMsgContentService.handleDownload(response);
 
-       }
+    }
 }
