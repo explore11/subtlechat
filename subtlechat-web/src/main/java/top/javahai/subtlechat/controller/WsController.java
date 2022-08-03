@@ -36,6 +36,12 @@ public class WsController {
     @Resource
     private UserDao userDao;
 
+    @Autowired
+    GroupMsgContentService groupMsgContentService;
+
+    EmojiConverter emojiConverter = EmojiConverter.getInstance();
+
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     /**
      * 单聊的消息的接受与转发
@@ -73,13 +79,10 @@ public class WsController {
 
         messageContentService.insertMessageContent(messageContent);
         simpMessagingTemplate.convertAndSendToUser(message.getTo(), "/queue/chat", message);
+        //  /user/用户id/queue/chat
+//        simpMessagingTemplate.convertAndSendToUser(toUser.getId().toString(), "/queue/chat", message);
     }
 
-    @Autowired
-    GroupMsgContentService groupMsgContentService;
-    EmojiConverter emojiConverter = EmojiConverter.getInstance();
-
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     /**
      * 群聊的消息接受与转发
