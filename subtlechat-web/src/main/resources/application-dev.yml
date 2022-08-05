@@ -39,3 +39,13 @@ mybatis-plus:
 fastdfs:
   nginx:
     host:
+
+## 时序数据库配置
+influxdb:
+  url: http://127.0.0.1:8086
+  org: chat
+  bucket: song-chat
+  token: oYLaYobHLzO_ZSK43jMF5-JTHlBPDqoTAZmuK5UgSyttfQ8JIm5IC8Q7NRubAQJBc6PwpiutjMiW_cCFs9DbkA==
+#日志输出
+logging:
+  config: classpath:logback-spring.xml
