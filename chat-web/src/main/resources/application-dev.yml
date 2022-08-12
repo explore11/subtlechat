@@ -1,0 +1,51 @@
+# 数据库配置
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost/chat
+    password: root
+    username: root
+  #RabbitMQ的配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /chat
+    #将消息确认投递到交换机的确认类型改为交互
+    publisher-returns: true
+    publisher-confirms-type: correlated
+#mapper文件位置配置
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+#sql日志显示
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+#mybatis-plus
+mybatis-plus:
+  configuration:
+    lazy-loading-enabled: true
+    local-cache-scope: statement
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:mapper/**/*.xml
+  global-config:
+    db-config:
+      logic-delete-value: 1 #已删除
+      logic-not-delete-value: 0 #未删除
+
+#FastDFS文件服务器的主机名
+fastdfs:
+  nginx:
+    host:
+
+## 时序数据库配置
+influxdb:
+  url: http://127.0.0.1:8086
+  org: chat
+  bucket: song-chat
+  token: oYLaYobHLzO_ZSK43jMF5-JTHlBPDqoTAZmuK5UgSyttfQ8JIm5IC8Q7NRubAQJBc6PwpiutjMiW_cCFs9DbkA==
+#日志输出
+logging:
+  config: classpath:logback-spring.xml

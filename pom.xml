@@ -8,26 +8,26 @@
         <version>2.1.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>top.javahai</groupId>
-    <artifactId>subtlechat</artifactId>
+    <groupId>top.song</groupId>
+    <artifactId>chat</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>subtlechat</name>
+    <name>chat</name>
     <description>聊天室</description>
     <packaging>pom</packaging>
 
     <modules>
-        <module>subtlechat-mail</module>
-        <module>subtlechat-web</module>
-        <module>subtlechat-api</module>
+        <module>chat-mail</module>
+        <module>chat-web</module>
+        <module>chat-api</module>
     </modules>
 
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <fspring-boot-starter-parent.version>2.1.6.RELEASE</fspring-boot-starter-parent.version>
-        <subtlechat-api.version>0.0.1-SNAPSHOT</subtlechat-api.version>
-        <subtlechat-web.version>0.0.1-SNAPSHOT</subtlechat-web.version>
-        <subtlechat-mail.version>0.0.1-SNAPSHOT</subtlechat-mail.version>
+        <chat-api.version>0.0.1-SNAPSHOT</chat-api.version>
+        <chat-web.version>0.0.1-SNAPSHOT</chat-web.version>
+        <chat-mail.version>0.0.1-SNAPSHOT</chat-mail.version>
         <fastdfs-client.version>1.27.0.0</fastdfs-client.version>
         <fastjson.version>1.2.73</fastjson.version>
         <easyexcel.version>2.2.6</easyexcel.version>
@@ -87,19 +87,19 @@
                 <version>${slf4j-api.version}</version>
             </dependency>
             <dependency>
-                <groupId>top.javahai</groupId>
-                <artifactId>subtlechat-api</artifactId>
-                <version>${subtlechat-api.version}</version>
+                <groupId>top.song</groupId>
+                <artifactId>chat-api</artifactId>
+                <version>${chat-api.version}</version>
             </dependency>
             <dependency>
-                <groupId>top.javahai</groupId>
-                <artifactId>subtlechat-mail</artifactId>
-                <version>${subtlechat-mail.version}</version>
+                <groupId>top.song</groupId>
+                <artifactId>chat-mail</artifactId>
+                <version>${chat-mail.version}</version>
             </dependency>
             <dependency>
-                <groupId>top.javahai</groupId>
-                <artifactId>subtlechat-web</artifactId>
-                <version>${subtlechat-web.version}</version>
+                <groupId>top.song</groupId>
+                <artifactId>chat-web</artifactId>
+                <version>${chat-web.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>

@@ -1,0 +1,35 @@
+server:
+  port: 8084
+#邮件相关配置
+spring:
+  application:
+    name: chat-mail
+  mail:
+    host: smtp.qq.com
+    protocol: smtp
+    default-encoding: UTF-8
+    #邮箱名
+    username: 1915541547@qq.com
+    #申请的授权码
+    password: pdvtwtkqudgtfgab
+    port: 587
+    properties.mail.stmp.socketFactory.class: javax.net.ssl.SSLSocketFactory
+    properties.mail.debug: true
+  #RabbitMQ的配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /chat
+    #开启手动确认是否消息消费成功
+    listener:
+      simple:
+        acknowledge-mode: manual
+        prefetch: 100
+  #Redis的配置
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+#    password:
