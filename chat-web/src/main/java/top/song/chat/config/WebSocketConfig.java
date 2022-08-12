@@ -36,8 +36,11 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         // 设置消息代理前缀
         // 即如果消息的前缀是 /topic ，就会将消息转发给消息代理（broker），
         // 再由消息代理将消息广播给当前连接的客户端。
-        registry.enableSimpleBroker("/topic", "/queue");
+//        registry.enableSimpleBroker("/topic", "/queue");
         // 如果以/user/用户id/queue/chat使用该样式
-//        registry.enableSimpleBroker("/topic", "/user");
+        registry.enableSimpleBroker("/topic", "/user");
+//        //点对点使用的订阅前缀（客户端订阅路径上会体现出来），不设置的话，默认也是/user/
+//        registry.setUserDestinationPrefix("/user");
+
     }
 }
