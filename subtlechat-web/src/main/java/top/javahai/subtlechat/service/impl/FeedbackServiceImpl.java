@@ -1,17 +1,16 @@
 package top.javahai.subtlechat.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import top.javahai.subtlechat.api.entity.Feedback;
 import top.javahai.subtlechat.api.entity.MailConstants;
 import top.javahai.subtlechat.api.entity.MailSendLog;
 import top.javahai.subtlechat.api.utils.JsonUtil;
 import top.javahai.subtlechat.dao.FeedbackDao;
 import top.javahai.subtlechat.service.FeedbackService;
-import org.springframework.stereotype.Service;
 import top.javahai.subtlechat.service.MailSendLogService;
 
 import javax.annotation.Resource;
@@ -21,9 +20,6 @@ import java.util.UUID;
 
 /**
  * (Feedback)表服务实现类
- *
- * @author makejava
- * @since 2020-10-02 12:19:44
  */
 @Service("feedbackService")
 public class FeedbackServiceImpl implements FeedbackService {

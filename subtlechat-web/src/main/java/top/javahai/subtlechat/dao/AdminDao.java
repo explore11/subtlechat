@@ -8,9 +8,6 @@ import java.util.List;
 
 /**
  * (Admin)表数据库访问层
- *
- * @author makejava
- * @since 2020-06-16 11:35:57
  */
 public interface AdminDao extends BaseMapper<Admin> {
 

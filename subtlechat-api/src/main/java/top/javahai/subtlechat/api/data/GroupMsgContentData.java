@@ -16,9 +16,6 @@ import java.util.Date;
 
 /**
  * Excel导入导出的数据类
- *
- * @author Hai
- * @date 2020/10/7 - 23:52
  */
 @ColumnWidth(25)
 @ContentRowHeight(30)

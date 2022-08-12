@@ -1,6 +1,5 @@
 package top.javahai.subtlechat.controller;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.github.binarywang.java.emoji.EmojiConverter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @author Hai
- * @date 2020/6/16 - 23:34
+ * websocket
  */
 @Controller
 public class WsController {

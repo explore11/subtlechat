@@ -23,9 +23,6 @@ import java.util.Date;
 
 /**
  * 处理发送验证码的消息，保证消息不会重复消费
- *
- * @author Hai
- * @date 2020/10/2 - 23:25
  */
 @Component
 public class VerifyCodeReceiver {

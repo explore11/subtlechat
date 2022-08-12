@@ -12,8 +12,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * @author Hai
- * @date 2020/6/20 - 23:43
+ * 存储工具类
  */
 public class FastDFSUtil {
     private static StorageClient1 client1;

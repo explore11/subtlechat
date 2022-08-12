@@ -7,9 +7,6 @@ import java.util.List;
 
 /**
  * (MailSendLog)表服务接口
- *
- * @author makejava
- * @since 2020-10-02 14:40:33
  */
 public interface MailSendLogService {
 

@@ -24,8 +24,7 @@ import java.io.IOException;
 import java.util.Date;
 
 /**
- * @author Hai
- * @date 2020/10/2 - 13:54
+ * 反馈
  */
 @Component
 public class FeedbackReceiver {

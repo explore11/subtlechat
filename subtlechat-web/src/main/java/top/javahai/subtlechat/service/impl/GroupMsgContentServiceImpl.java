@@ -20,9 +20,6 @@ import java.util.stream.Collectors;
 
 /**
  * (GroupMsgContent)表服务实现类
- *
- * @author makejava
- * @since 2020-06-17 10:51:13
  */
 @Service("groupMsgContentService")
 public class GroupMsgContentServiceImpl implements GroupMsgContentService {

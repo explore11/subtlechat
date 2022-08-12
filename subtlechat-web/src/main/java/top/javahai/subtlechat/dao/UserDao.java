@@ -8,9 +8,6 @@ import java.util.List;
 
 /**
  * (User)表数据库访问层
- *
- * @author makejava
- * @since 2020-06-16 12:06:29
  */
 public interface UserDao extends BaseMapper<User> {
 

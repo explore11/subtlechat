@@ -13,8 +13,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * @author Hai
- * @date 2020/6/19 - 13:18
+ * 认证成功处理器
  */
 @Configuration
 public class MyLogoutSuccessHandler implements LogoutSuccessHandler {

@@ -14,9 +14,6 @@ import java.util.List;
 
 /**
  * (GroupMsgContent)表控制层
- *
- * @author makejava
- * @since 2020-06-17 10:51:13
  */
 @RestController
 @RequestMapping("/groupMsgContent")

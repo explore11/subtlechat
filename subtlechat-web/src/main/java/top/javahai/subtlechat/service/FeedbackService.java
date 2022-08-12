@@ -6,9 +6,6 @@ import java.util.List;
 
 /**
  * (Feedback)表服务接口
- *
- * @author makejava
- * @since 2020-10-02 12:19:43
  */
 public interface FeedbackService {
 

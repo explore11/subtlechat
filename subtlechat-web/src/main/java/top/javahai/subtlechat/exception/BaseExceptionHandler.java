@@ -12,8 +12,6 @@ import top.javahai.subtlechat.api.utils.ResultCode;
 
 /**
  * @Description:添加全局异常处理
- * @Author LinJia
- * @Date 2021/9/16
  **/
 @ControllerAdvice
 public class BaseExceptionHandler {

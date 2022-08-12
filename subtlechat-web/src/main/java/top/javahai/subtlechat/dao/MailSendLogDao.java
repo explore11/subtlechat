@@ -10,9 +10,6 @@ import java.util.List;
 
 /**
  * (MailSendLog)表数据库访问层
- *
- * @author makejava
- * @since 2020-10-02 14:40:33
  */
 public interface MailSendLogDao extends BaseMapper<MailSendLog> {
 

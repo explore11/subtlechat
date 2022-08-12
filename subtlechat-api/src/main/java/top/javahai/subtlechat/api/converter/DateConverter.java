@@ -8,8 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * @author Hai
- * @date 2020/6/23 - 16:28
+ * @author 日期转换器
  */
 @Component
 public class DateConverter implements Converter<String, Date> {

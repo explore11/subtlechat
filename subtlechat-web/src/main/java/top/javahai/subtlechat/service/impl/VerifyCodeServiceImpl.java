@@ -16,8 +16,7 @@ import java.util.Random;
 import java.util.UUID;
 
 /**
- * @author Hai
- * @date 2020/10/2 - 23:27
+ * 验证码服务层
  */
 @Service("verifyCodeService")
 public class VerifyCodeServiceImpl implements VerifyCodeService {

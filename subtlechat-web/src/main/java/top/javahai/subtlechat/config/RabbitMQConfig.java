@@ -12,9 +12,6 @@ import top.javahai.subtlechat.service.MailSendLogService;
 
 /**
  * 自定义消息发送RabbitTemplate
- *
- * @author Hai
- * @date 2020/10/2 - 14:35
  */
 @Configuration
 public class RabbitMQConfig {

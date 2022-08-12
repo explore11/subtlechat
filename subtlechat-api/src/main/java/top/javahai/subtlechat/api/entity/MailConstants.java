@@ -1,8 +1,7 @@
 package top.javahai.subtlechat.api.entity;
 
 /**
- * @author Hai
- * @date 2020/10/2 - 14:52
+ * 常量
  */
 public class MailConstants {
     //消息投递中

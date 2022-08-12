@@ -1,8 +1,7 @@
 package top.javahai.subtlechat.api.entity;
 
 /**
- * @author Hai
- * @date 2020/4/19 - 23:23
+ * 统一返回值
  */
 //JSON返回值的实体类
 public class RespBean {

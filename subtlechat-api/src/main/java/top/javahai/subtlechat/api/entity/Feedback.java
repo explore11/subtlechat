@@ -10,9 +10,6 @@ import java.io.Serializable;
 
 /**
  * (Feedback)实体类
- *
- * @author makejava
- * @since 2020-10-02 12:14:15
  */
 @Data
 @AllArgsConstructor

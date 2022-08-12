@@ -11,8 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author Hai
- * @date 2020/10/1 - 18:32
+ * mq配置
  */
 @Configuration
 public class RabbitMQConfig {

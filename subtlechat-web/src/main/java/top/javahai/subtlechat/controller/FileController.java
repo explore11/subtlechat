@@ -10,8 +10,7 @@ import top.javahai.subtlechat.api.utils.FastDFSUtil;
 import java.io.IOException;
 
 /**
- * @author Hai
- * @date 2020/6/21 - 16:47
+ * 文件
  */
 @RestController
 public class FileController {

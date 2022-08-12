@@ -8,9 +8,6 @@ import java.util.List;
 
 /**
  * (UserState)表数据库访问层
- *
- * @author makejava
- * @since 2020-06-16 11:36:02
  */
 public interface UserStateDao extends BaseMapper<UserState> {
 

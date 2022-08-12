@@ -11,9 +11,6 @@ import java.io.Serializable;
 
 /**
  * (MailSendLog)实体类
- *
- * @author makejava
- * @since 2020-10-02 15:10:48
  */
 @Data
 @AllArgsConstructor

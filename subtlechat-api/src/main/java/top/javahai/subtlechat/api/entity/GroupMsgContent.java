@@ -23,9 +23,6 @@ import java.util.Date;
 
 /**
  * (GroupMsgContent)实体类
- *
- * @author makejava
- * @since 2020-06-17 10:46:50
  */
 @ColumnWidth(25)
 @ContentRowHeight(40)

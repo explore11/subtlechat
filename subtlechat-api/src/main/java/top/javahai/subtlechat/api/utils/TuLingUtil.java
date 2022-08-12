@@ -14,9 +14,6 @@ import java.util.HashMap;
 
 /**
  * 智能回复机器人工具类
- *
- * @author Hai
- * @date 2020/6/25 - 17:53
  */
 public class TuLingUtil {
 

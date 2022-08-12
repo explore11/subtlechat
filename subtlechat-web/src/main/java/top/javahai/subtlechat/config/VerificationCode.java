@@ -8,8 +8,6 @@ import java.io.OutputStream;
 import java.util.Random;
 
 /**
- * @author Hai
- * @date 2020/6/16 - 17:24
  * 生成验证码的工具类
  */
 public class VerificationCode {

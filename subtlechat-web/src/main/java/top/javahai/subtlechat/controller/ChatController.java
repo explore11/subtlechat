@@ -10,8 +10,7 @@ import top.javahai.subtlechat.service.UserService;
 import java.util.List;
 
 /**
- * @author Hai
- * @date 2020/6/16 - 21:32
+ * 聊天
  */
 @RestController
 @RequestMapping("/chat")

@@ -10,9 +10,6 @@ import javax.annotation.Resource;
 
 /**
  * (Admin)表控制层
- *
- * @author makejava
- * @since 2020-06-16 11:35:59
  */
 @RestController
 @RequestMapping("admin")

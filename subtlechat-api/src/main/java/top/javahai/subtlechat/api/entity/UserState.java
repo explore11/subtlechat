@@ -11,9 +11,6 @@ import java.io.Serializable;
 
 /**
  * (UserState)实体类
- *
- * @author makejava
- * @since 2020-06-16 11:36:02
  */
 @Data
 @AllArgsConstructor

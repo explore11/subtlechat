@@ -1,8 +1,7 @@
 package top.javahai.subtlechat.service;
 
 /**
- * @author Hai
- * @date 2020/10/2 - 23:27
+ * 验证码服务层
  */
 public interface VerifyCodeService {
 

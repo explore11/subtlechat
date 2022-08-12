@@ -18,10 +18,7 @@ import java.net.URLConnection;
 import java.util.UUID;
 
 /**
- * @author Hai
- * @program: subtlechat
  * @description: 处理聊天记录的内容的导出
- * @create 2020/10/8 - 23:59
  **/
 public class MyContentConverter implements Converter<String> {
     @Override

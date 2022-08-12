@@ -14,8 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * @author Hai
- * @date 2020/6/19 - 13:13
+ * 认证失败处理器
  */
 @Configuration
 public class MyAuthenticationFailureHandler implements AuthenticationFailureHandler {

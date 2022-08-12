@@ -6,9 +6,6 @@ import java.util.List;
 
 /**
  * (UserState)表服务接口
- *
- * @author makejava
- * @since 2020-06-16 11:36:02
  */
 public interface UserStateService {
 

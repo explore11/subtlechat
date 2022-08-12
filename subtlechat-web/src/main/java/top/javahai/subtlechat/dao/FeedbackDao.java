@@ -8,9 +8,6 @@ import java.util.List;
 
 /**
  * (Feedback)表数据库访问层
- *
- * @author makejava
- * @since 2020-10-02 12:19:43
  */
 public interface FeedbackDao extends BaseMapper<Feedback> {
 

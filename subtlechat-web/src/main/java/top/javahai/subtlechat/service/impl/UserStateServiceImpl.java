@@ -10,9 +10,6 @@ import java.util.List;
 
 /**
  * (UserState)表服务实现类
- *
- * @author makejava
- * @since 2020-06-16 11:36:02
  */
 @Service("userStateService")
 public class UserStateServiceImpl implements UserStateService {

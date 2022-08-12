@@ -32,8 +32,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * @author Hai
- * @date 2020/6/19 - 12:37
+ * 权限配置
  */
 @EnableWebSecurity
 public class MultiHttpSecurityConfig {

@@ -8,8 +8,6 @@ import top.javahai.subtlechat.api.entity.RespBean;
 import java.sql.SQLException;
 
 /**
- * @author Hai
- * @date 2020/4/27 - 19:49
  * 功能：全局异常处理类
  */
 @RestControllerAdvice

@@ -14,8 +14,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author Hai
- * @date 2020/10/2 - 15:07
+ * 任务
  */
 @Component
 public class MailSendTask {

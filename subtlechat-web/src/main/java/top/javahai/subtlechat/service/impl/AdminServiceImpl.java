@@ -14,9 +14,6 @@ import java.util.List;
 
 /**
  * (Admin)表服务实现类
- *
- * @author makejava
- * @since 2020-06-16 11:35:58
  */
 @Service("adminService")
 public class AdminServiceImpl implements AdminService, UserDetailsService {

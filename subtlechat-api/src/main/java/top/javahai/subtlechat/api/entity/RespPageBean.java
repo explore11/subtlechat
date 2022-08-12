@@ -3,8 +3,7 @@ package top.javahai.subtlechat.api.entity;
 import java.util.List;
 
 /**
- * @author luo
- * @date 2020/6/22 - 19:18
+ * 分页统一返回值
  */
 public class RespPageBean {
     private Long total;//数据总数

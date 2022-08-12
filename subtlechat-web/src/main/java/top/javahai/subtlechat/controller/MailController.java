@@ -9,9 +9,6 @@ import top.javahai.subtlechat.service.FeedbackService;
 
 /**
  * 邮箱服务控制器
- *
- * @author Hai
- * @date 2020/6/29 - 18:42
  */
 @RestController
 @RequestMapping("/mail")

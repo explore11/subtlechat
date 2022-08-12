@@ -9,10 +9,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
 /**
- * @author Hai
- * @program: subtlechat
  * @description: 调用Thumbnails压缩图片
- * @create 2020/10/8 - 13:50
  **/
 public class ImgUtil {
 

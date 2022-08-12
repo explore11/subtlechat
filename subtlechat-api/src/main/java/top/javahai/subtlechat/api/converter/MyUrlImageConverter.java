@@ -20,10 +20,7 @@ import java.net.URLConnection;
 import java.util.UUID;
 
 /**
- * @author Hai
- * @program: subtlechat
  * @description: 将URL图片的格式转化器
- * @create 2020/10/8 - 12:45
  **/
 public class MyUrlImageConverter implements Converter<URL> {
     @Override

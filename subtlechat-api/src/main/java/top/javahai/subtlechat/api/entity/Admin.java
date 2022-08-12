@@ -10,9 +10,6 @@ import java.util.Collection;
 
 /**
  * (Admin)实体类
- *
- * @author makejava
- * @since 2020-06-16 11:35:56
  */
 @TableName(value = "admin")
 public class Admin implements Serializable, UserDetails {

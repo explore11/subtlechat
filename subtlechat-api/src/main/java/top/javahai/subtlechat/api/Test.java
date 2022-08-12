@@ -11,12 +11,7 @@ import java.io.InputStream;
 import java.net.*;
 import java.util.UUID;
 
-/**
- * @author Hai
- * @program: subtlechat
- * @description: gg
- * @create 2020/10/9 - 23:15
- **/
+
 public class Test {
     public static void main(String[] args) throws IOException {
         System.out.println(test("http://"));
